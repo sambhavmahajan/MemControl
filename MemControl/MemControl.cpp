@@ -43,23 +43,23 @@ int main()
     {
         int t;
         cin >> t;
-        searchBlocks<int>(t);
+        Block<int>* head = searchBlocks<int>(t);
     }else if (strcmp(type, "float") == 0)
     {
         float t;
         cin >> t;
-        searchBlocks<float>(t);
+        Block<float>* head = searchBlocks<float>(t);
     }else if (strcmp(type, "double") == 0)
     {
         double t;
         cin >> t;
-        searchBlocks<double>(t);
+        Block<double>* head = searchBlocks<double>(t);
     }
     else if (strcmp(type, "char") == 0)
     {
         char t;
         cin >> t;
-        searchBlocks<char>(t);
+        Block<char>* head = searchBlocks<char>(t);
     }
     else {
         cout << "Fail!";
