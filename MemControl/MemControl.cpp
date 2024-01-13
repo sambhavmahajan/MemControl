@@ -1,11 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 using namespace std;
-template<typename T>
-struct Block {
-    T* address;
-    Block* next;
-};
+
 template<typename T>
 T* newBlock(T* val)
 {
@@ -15,13 +11,25 @@ T* newBlock(T* val)
     return newblock;
 }
 template<typename T>
-class Head {
+class Block {
 public:
-    T* item;
+    T* address;
+    Block<T>* next;
+    Head()
+    {
+        item = nullptr;
+        next = nullptr;
+    }
+    ~Head()
+    {
+        delete item;
+        delete next;
+    }
 };
 template <typename T>
 void searchBlocks(T Target)
 {
+    Head<Block<T>>* head = new Head<Block<T>>();
     T* i = 0;
     while(i < 0x7fffffff)
     {
