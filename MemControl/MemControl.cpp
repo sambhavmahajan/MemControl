@@ -29,13 +29,16 @@ public:
 template <typename T>
 void searchBlocks(T Target)
 {
-    Head<Block<T>>* head = new Head<Block<T>>();
+    Head<T>* head = new Head<T>();
+    Head<T>* curr = head;
     T* i = 0;
     while(i < 0x7fffffff)
     {
         if (*i == Target)
         {
-
+            curr->address = i;
+            curr->next = new T;
+            curr = curr->next;
         }
         ++i;
     }
