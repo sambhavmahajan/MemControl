@@ -15,10 +15,10 @@ public:
     }
 };
 template <typename T>
-void searchBlocks(T Target)
+Block<T>* searchBlocks(T Target)
 {
-    Head<T>* head = new Head<T>();
-    Head<T>* curr = head;
+    Block<T>* head = new Block<T>();
+    Block<T>* curr = head;
     T* i = 0;
     while(i < reinterpret_cast<T*>(0x7fffffff))
     {
@@ -30,6 +30,7 @@ void searchBlocks(T Target)
         }
         ++i;
     }
+    return head;
 }
 int main()
 {
