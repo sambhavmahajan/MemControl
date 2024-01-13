@@ -3,24 +3,12 @@
 using namespace std;
 
 template<typename T>
-T* newBlock(T* val)
-{
-    Block<T> newblock = new Block<T>;
-    newblock->address = val;
-    newblock->next = nullptr;
-    return newblock;
-}
-template<typename T>
 class Block {
 public:
     T* address;
     Block<T>* next;
-    Head()
-    {
-        item = nullptr;
-        next = nullptr;
-    }
-    ~Head()
+    Block() : item(nullptr), next(nullptr){}
+    ~Block()
     {
         delete item;
         delete next;
@@ -32,7 +20,7 @@ void searchBlocks(T Target)
     Head<T>* head = new Head<T>();
     Head<T>* curr = head;
     T* i = 0;
-    while(i < 0x7fffffff)
+    while(i < reinterpret_cast<T*>(0x7fffffff))
     {
         if (*i == Target)
         {
